@@ -30,7 +30,6 @@ export class EmployeesComponent implements OnInit {
         }
       })
       
-      console.log(this.employeeData)
      if(this.employeeData.length > 0){
       this.showNoEmployeeImg = false;
      }

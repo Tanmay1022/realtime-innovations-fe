@@ -29,8 +29,8 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeForm = this.formBuilder.group({
-      employeeName: [''],
-      selectRole: [''],
+      employeeName: ['',Validators.required],
+      selectRole: ['',Validators.required],
       startDate: [''],
       endDate: ['']
     });
