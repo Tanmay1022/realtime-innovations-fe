@@ -24,8 +24,13 @@
             </div>
         
             <div class="row align-items-center mb-3 mx-1">
+<<<<<<< HEAD
                 <div class="col-5 input-border">
                     <button mat-button type="button" class="p-2 date-button" (click)="openCalendarDialog('startDate')">
+=======
+                <div class="col-5 input-border" [ngClass]="{'red-border': employeeForm.get('startDate')?.invalid && (employeeForm.get('startDate')?.touched || employeeForm.get('startDate')?.dirty)}">
+                    <button mat-button type="button" class="p-2 date-button"  (click)="openCalendarDialog('startDate')">
+>>>>>>> master
                         <mat-icon>calendar_today</mat-icon>
                         {{employeeForm.get('startDate')?.value ? (employeeForm.get('startDate')?.value | date) : 'No date'}}
                     </button>
@@ -46,7 +51,11 @@
             </div>
             
             
+<<<<<<< HEAD
                 <div class="d-flex justify-content-end align-items-center p-3 button-position">
+=======
+                <div class="d-flex justify-content-end align-items-center p-4 button-position">
+>>>>>>> master
                     <button mat-raised-button class="text-light me-3 cancel-btn" (click)="cancelAdding()">Cancel</button>
                     <button mat-raised-button class="text-light save-btn"  type="submit">Save</button>
                 </div>
