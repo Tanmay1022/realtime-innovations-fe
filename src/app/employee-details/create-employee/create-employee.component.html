@@ -7,26 +7,34 @@
         <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="">
             <div class="mb-3">
                 <mat-form-field appearance="outline" class="full-width">
-                    <input matInput id="employeeName" placeholder="Employee name" formControlName="employeeName" />
+                    <div class="d-flex justify-content-start align-items-center">
+                        <mat-icon>person_outline</mat-icon>
+                        <input matInput id="employeeName" placeholder="Employee name" formControlName="employeeName" />
+                    </div>
+                    
                 </mat-form-field>
             </div>
         
             <div class="mb-3">
                 <mat-form-field appearance="outline" class="full-width">
-                    <mat-select id="selectRole" formControlName="selectRole">
-                        <mat-option value="">Select a role</mat-option>
-                        <mat-option value="Product Designer">Product Designer</mat-option>
-                        <mat-option value="Flutter Developer">Flutter Developer</mat-option>
-                        <mat-option value="QA Tester">QA Tester</mat-option>
-                        <mat-option value="Product Owner">Product Owner</mat-option>
-                    </mat-select>
+                    <div class="d-flex justify-content-start align-item-center">
+                        <mat-icon>work_outline</mat-icon>
+                        <mat-select id="selectRole" formControlName="selectRole">
+                            <mat-option value="">Select a role</mat-option>
+                            <mat-option value="Product Designer">Product Designer</mat-option>
+                            <mat-option value="Flutter Developer">Flutter Developer</mat-option>
+                            <mat-option value="QA Tester">QA Tester</mat-option>
+                            <mat-option value="Product Owner">Product Owner</mat-option>
+                        </mat-select>
+                    </div>
+                   
                 </mat-form-field>
             </div>
         
             <div class="row align-items-center mb-3 mx-1">
                 <div class="col-5 input-border" [ngClass]="{'red-border': employeeForm.get('startDate')?.invalid && (employeeForm.get('startDate')?.touched || employeeForm.get('startDate')?.dirty)}">
                     <button mat-button type="button" class="p-2 date-button"  (click)="openCalendarDialog('startDate')">
-                        <mat-icon>calendar_today</mat-icon>
+                        <mat-icon>today</mat-icon>
                         {{employeeForm.get('startDate')?.value ? (employeeForm.get('startDate')?.value | date) : 'No date'}}
                     </button>
                 </div>
@@ -39,7 +47,7 @@
         
                 <div class="col-5 input-border">
                     <button mat-button type="button" class="p-2 date-button" (click)="openCalendarDialog('endDate')">
-                        <mat-icon>calendar_today</mat-icon>
+                        <mat-icon>today</mat-icon>
                         {{employeeForm.get('endDate')?.value ? (employeeForm.get('endDate')?.value | date) : 'No date'}}
                     </button>
                 </div>

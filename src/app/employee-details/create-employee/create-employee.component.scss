@@ -21,6 +21,14 @@
             svg {
                 width: 100%;
             }
+
+            div{
+                mat-icon{
+                    color: #1DA1F2;
+                    margin-right: 12px;
+                    margin-top: -3%;
+                }
+            }
         }
 
         overflow: hidden;
@@ -47,10 +55,11 @@
 
                 .mat-form-field-flex {
                     .mat-form-field-infix {
-                        span {
-                            label {
-                                // display: none;
-                            }
+                        input{
+                            margin-top: -2%;
+                        }
+                        mat-select{
+                            margin-top: -2%;
                         }
                     }
                 }
