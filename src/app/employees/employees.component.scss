@@ -1,0 +1,75 @@
+.bg-nav-custom {
+    background: #1DA1F2;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.delete-button {
+    cursor: pointer;
+    border: none;
+    background-color: #F34642;
+    padding: 2%;
+
+    p {
+        position: relative;
+        top: 6px;
+    }
+}
+
+.add-btn{
+    position: relative;
+    left: 83.5%;
+    top: 35px;
+}
+
+
+
+@media(max-width:576px) {
+    .w-200 {
+        width: 200svw;
+        overflow-x: scroll;
+    }
+
+    .delete-button {
+        border: none;
+        background-color: #F34642;
+        padding: 7%;
+
+        p {
+            position: relative;
+            top: -20px;
+            left: -27px
+        }
+    }
+
+    .scroll-previous{
+        height: 50vh;
+        overflow-y: scroll;
+    }
+
+    .set-height {
+        height: 100px;
+        overflow: auto;
+        padding: 3%;
+        overflow-y: hidden;
+    }
+
+    .set-height::-webkit-scrollbar {
+        display: none;
+    }
+
+    .bottom-position{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #F2F2F2;
+    }
+
+    .add-btn{
+        position: relative;
+        left: 0%;
+        top: 0px;
+    }
+}

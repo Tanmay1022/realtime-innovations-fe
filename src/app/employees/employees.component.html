@@ -1,0 +1,170 @@
+<div class="">
+    <div class="bg-nav-custom p-2">
+        <p class="text-light fs-5 mt-2">Employee List</p>
+    </div>
+
+
+    <div *ngIf="showNoEmployeeImg" class="position-absolute top-50 start-50 translate-middle">
+        <img src="assets/no-employee.png" alt="no-employee">
+    </div>
+
+    <div class="d-lg-none d-block">
+        <div *ngIf="!showNoEmployeeImg" class="bg-light p-2">
+            <p class="text-primary">Current employees</p>
+        </div>
+
+        <div class="scroll-previous">
+            <ng-container *ngFor="let employee of employeeData">
+                <div *ngIf="employee?.endDate === 'aN-aN-NaN'" (scroll)="onScroll($event, employee)" class="set-height">
+                    <div class="w-200 border border-light px-2">
+                        <div class="w-50 d-inline-block" (click)="editEmployee(employee)">
+                            <div class="">
+                                <h3 class="mb-1">{{employee?.employeeName}}</h3>
+                                <p class="text-secondary mb-1">{{employee?.selectRole}}</p>
+                                <p class="text-secondary mb-1">
+                                    From {{ employee?.startDate }} <span *ngIf="employee?.endDate !== 'aN-aN-NaN'"> - {{
+                                        employee?.endDate }}</span>
+                                </p>
+                            </div>
+    
+                        </div>
+    
+                        <div class="delete-button w-50 d-inline-block">
+                            <p (click)="deleteEmployee(employee?.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff"
+                                    class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+            </ng-container>
+        </div>
+       
+
+        <div *ngIf="!showNoEmployeeImg" class="bg-light p-2">
+            <p class="text-primary">Previous employees</p>
+        </div>
+
+        <div class="scroll-previous">
+            <ng-container *ngFor="let employee of employeeData">
+                <div *ngIf="employee?.endDate !== 'aN-aN-NaN'" (scroll)="onScroll($event, employee)" class="set-height">
+                    <div class="w-200 border border-light px-2">
+                        <div class="w-50 d-inline-block" (click)="editEmployee(employee)">
+                            <div class="">
+                                <h3 class="mb-1">{{employee?.employeeName}}</h3>
+                                <p class="text-secondary mb-1">{{employee?.selectRole}}</p>
+                                <p class="text-secondary mb-1">
+                                    From {{ employee?.startDate }} <span *ngIf="employee?.endDate !== 'aN-aN-NaN'"> - {{
+                                        employee?.endDate }}</span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="delete-button w-50 d-inline-block">
+                            <p (click)="deleteEmployee(employee?.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff"
+                                    class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="d-lg-block d-none">
+        <div *ngIf="!showNoEmployeeImg" class="container bg-light p-2">
+            <p class="text-primary">Current employees</p>
+        </div>
+
+        <ng-container *ngFor="let employee of employeeData">
+            <div *ngIf="employee?.endDate === 'aN-aN-NaN'" class="container mt-2">
+                <div class="border border-light px-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="cursor-pointer" (click)="editEmployee(employee)">
+                            <h3 class="mb-1">{{employee?.employeeName}}</h3>
+                            <p class="text-secondary mb-1">{{employee?.selectRole}}</p>
+                            <p class="text-secondary mb-1">
+                                From {{ employee?.startDate }} <span *ngIf="employee?.endDate !== 'aN-aN-NaN'"> - {{ employee?.endDate}}</span>
+                            </p>
+                        </div>
+
+                        <div class="delete-button">
+                            <p (click)="deleteEmployee(employee?.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff"
+                                    class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </ng-container>
+
+        <div *ngIf="!showNoEmployeeImg" class="container bg-light p-2">
+            <p class="text-primary">Previous employees</p>
+        </div>
+
+        <ng-container *ngFor="let employee of employeeData">
+            <div *ngIf="employee?.endDate !== 'aN-aN-NaN'" class="container mt-2">
+                <div class="border border-light px-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="cursor-pointer" (click)="editEmployee(employee)">
+                            <h3 class="mb-1">{{employee?.employeeName}}</h3>
+                            <p class="text-secondary mb-1">{{employee?.selectRole}}</p>
+                            <p class="text-secondary mb-1">
+                                From {{ employee?.startDate }} - <span>{{ employee?.endDate}}</span>
+                            </p>
+                        </div>
+
+                        <div class="delete-button">
+                            <p (click)="deleteEmployee(employee?.id)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff"
+                                    class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+
+
+    <div (click)="addEmployee()" class="bottom-position p-2">
+        <div class="d-flex justify-content-between align-items-center">
+
+            <div class="d-lg-none d-block">
+                <p>Swipe left to delete</p>
+            </div>
+
+            <div class="add-btn cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="#1DA1F2"
+                    class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0" />
+                </svg>
+            </div>
+        </div>
+
+    </div>
+</div>

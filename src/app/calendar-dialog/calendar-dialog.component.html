@@ -1,0 +1,28 @@
+<mat-card class="demo-inline-calendar-card">
+        <div class="row align-items-center mb-3">
+            <div class="col-6">
+                <button mat-button (click)="selectToday()" class="normalBtn w-100" [ngClass]="{'selected': selectedButton === 'today'}">Today</button>
+            </div>
+
+            <div class="col-6">
+                <button mat-button (click)="selectNextMonday()" class="normalBtn w-100" [ngClass]="{'selected': selectedButton === 'nextMonday'}">Next Monday</button>
+            </div> 
+        </div>
+
+        <div class="row align-items-center mb-3">
+            <div class="col-6">
+                <button mat-button (click)="selectNextTuesday()" class="normalBtn w-100" [ngClass]="{'selected': selectedButton === 'nextTuesday'}">Next Tuesday</button>
+            </div>
+
+            <div class="col-6">
+                <button mat-button (click)="selectAfterOneWeek()" class="normalBtn w-100" [ngClass]="{'selected': selectedButton === 'afterOneWeek'}">After 1 week</button>
+            </div>
+        </div>
+     
+    <mat-calendar [(selected)]="selected"></mat-calendar>
+    <div class="calendar-footer d-flex justify-content-end align-items-center">
+      <button mat-stroked-button class="cancelBtn me-2" (click)="cancel()">Cancel</button>
+      <button mat-flat-button  class="saveBtn" (click)="save()">Save</button>
+    </div>
+</mat-card>
+  
