@@ -1,0 +1,59 @@
+.demo-inline-calendar-card {}
+
+.normalBtn {
+    background: #EDF8FF;
+}
+
+.selected {
+    background-color: #1DA1F2; 
+    color: #fff;
+}
+
+.calendar-footer button {
+    font-size: 14px;
+    padding: 6px 20px;
+}
+
+.calendar-footer{
+    .cancelBtn{
+        background-color: #EDF8FF;
+        color: #1DA1F2;
+    }
+
+    .saveBtn{
+        background-color: #1DA1F2;
+        color: #fff;
+    }
+}
+
+::ng-deep{
+    .mat-dialog-container{
+        padding: 0px;
+        border-radius: 6px;
+    }
+
+    .mat-calendar-body-selected{
+        background-color: #1DA1F2;
+    }
+
+    mat-calendar{
+        .mat-calendar-period-button{
+            position: relative;
+            left: 30%;
+        }
+
+        .mat-calendar-previous-button{
+            position: relative;
+            left: -56%;
+        }
+
+        .mat-calendar-next-button{
+            position: relative;
+            left: -25%;
+        }
+
+        .mat-calendar-arrow{
+            display: none;
+        }
+    }
+}
