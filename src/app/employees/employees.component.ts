@@ -30,10 +30,6 @@ export class EmployeesComponent implements OnInit {
         }
       })
       
-<<<<<<< HEAD
-      console.log(this.employeeData)
-=======
->>>>>>> master
      if(this.employeeData.length > 0){
       this.showNoEmployeeImg = false;
      }
@@ -42,13 +38,8 @@ export class EmployeesComponent implements OnInit {
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
-<<<<<<< HEAD
-    const day = ('0' + date.getDate()).slice(-2); // Get day and pad with leading zero if needed
-    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Get month, pad with leading zero, and add 1 because months are zero-indexed
-=======
     const day = ('0' + date.getDate()).slice(-2); 
     const month = ('0' + (date.getMonth() + 1)).slice(-2);
->>>>>>> master
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
   }
