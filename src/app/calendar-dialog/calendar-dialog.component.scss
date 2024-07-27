@@ -1,5 +1,3 @@
-.demo-inline-calendar-card {}
-
 .normalBtn {
     background: #EDF8FF;
 }
@@ -39,7 +37,7 @@
     mat-calendar{
         .mat-calendar-period-button{
             position: relative;
-            left: 30%;
+            left: 33%;
         }
 
         .mat-calendar-previous-button{
@@ -54,6 +52,31 @@
 
         .mat-calendar-arrow{
             display: none;
+        }
+    }
+}
+
+@media(max-width: 576px){
+    ::ng-deep{
+        mat-calendar{
+            .mat-calendar-period-button{
+                position: relative;
+                left: 30%;
+            }
+    
+            .mat-calendar-previous-button{
+                position: relative;
+                left: -56%;
+            }
+    
+            .mat-calendar-next-button{
+                position: relative;
+                left: -25%;
+            }
+    
+            .mat-calendar-arrow{
+                display: none;
+            }
         }
     }
 }
