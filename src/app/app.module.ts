@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CalendarDialogComponent } from './calendar-dialog/calendar-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { InstructionDialogComponent } from './instruction-dialog/instruction-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
     CreateEmployeeComponent,
     EmployeesComponent,
     CalendarDialogComponent,
+    InstructionDialogComponent,
   ],
   imports: [
     BrowserModule,

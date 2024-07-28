@@ -1,6 +1,8 @@
-import { Component,  OnInit, Renderer2 } from '@angular/core';
+import { Component,  inject,  OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { HandleDataService } from '../services/handle-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { InstructionDialogComponent } from '../instruction-dialog/instruction-dialog.component';
 
 @Component({
   selector: 'app-employees',
@@ -8,16 +10,28 @@ import { HandleDataService } from '../services/handle-data.service';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-
   employeeData:any[] = [];
   showNoEmployeeImg =  true;
+  
   constructor(
     private router: Router,
     private dataService: HandleDataService,
+    private dialog: MatDialog
   ){}
 
   ngOnInit(): void {
     this.fetchItems();
+
+    const hasVisited = localStorage.getItem('hasVisited');
+    if (!hasVisited) {
+      this.openDialog();
+      localStorage.setItem('hasVisited', 'true');
+    }
+    
+  }
+
+  openDialog(): void {
+    this.dialog.open(InstructionDialogComponent);
   }
 
   fetchItems(): void {

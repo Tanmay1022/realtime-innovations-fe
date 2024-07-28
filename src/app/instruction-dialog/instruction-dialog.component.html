@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Instructions</h2>
+<mat-dialog-content>
+  <ul>
+    <li class="mb-2">Please note that as the application is hosted on Render's free plan, it may take 40-50 seconds for the server to start up when you visit the website. Kindly wait for this duration for the site to become fully operational.</li>
+    <li *ngIf="orientation === 'horizontal'">For the best experience, please note that this application is mobile-friendly. I recommend checking the mobile view first before switching to the desktop view.</li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex justify-content-center">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
