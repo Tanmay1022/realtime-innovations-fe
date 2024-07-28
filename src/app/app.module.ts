@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CalendarDialogComponent } from './calendar-dialog/calendar-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { InstructionDialogComponent } from './instruction-dialog/instruction-dialog.component';
 
 @NgModule({
@@ -42,6 +43,7 @@ import { InstructionDialogComponent } from './instruction-dialog/instruction-dia
     MatNativeDateModule,
     MatDialogModule,
     MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

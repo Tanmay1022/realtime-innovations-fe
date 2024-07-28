@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CalendarDialogComponent } from 'src/app/calendar-dialog/calendar-dialog.component';
 import { HandleDataService } from 'src/app/services/handle-data.service';
@@ -21,7 +22,8 @@ export class CreateEmployeeComponent implements OnInit {
     private employeeService: HandleDataService,
     private activateRoute: ActivatedRoute,
     private route: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {
     
   }
@@ -77,12 +79,31 @@ export class CreateEmployeeComponent implements OnInit {
 
   onSubmit(): void {
     if (this.employeeForm.valid) {
+
       if (this.employeeId) {
+        const startDate = this.employeeForm.value.startDate;
+        const endDate = this.employeeForm.value.endDate;
+      
+        if (startDate === '' && endDate !== '') {
+          this.snackBar.open("You must specify a start date if the end date is given.", 'Close', {
+            duration: 3000,
+          });
+          return;
+        }
         this.employeeService.updateItem(this.employeeId, this.employeeForm.value).subscribe(() => {
           this.route.navigate(['/']); 
         });
       }
       else{
+        const startDate = this.employeeForm.value.startDate;
+        const endDate = this.employeeForm.value.endDate;
+      
+        if (startDate === '' && endDate !== '') {
+          this.snackBar.open("You must specify a start date if the end date is given.", 'Close', {
+            duration: 2000,
+          });
+          return;
+        }
         const formValue = this.employeeForm.value;
         this.employeeService.createItem(formValue).subscribe(response => {
           this.route.navigate(["/"])
