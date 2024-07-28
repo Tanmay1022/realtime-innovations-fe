@@ -93,7 +93,7 @@
                             <h3 class="mb-1">{{employee?.employeeName}}</h3>
                             <p class="text-secondary mb-1">{{employee?.selectRole}}</p>
                             <p class="text-secondary mb-1">
-                                From {{ employee?.startDate }} <span *ngIf="employee?.endDate !== 'aN-aN-NaN'"> - {{ employee?.endDate}}</span>
+                                <span *ngIf="employee?.startDate !=='aN-aN-NaN'">From {{ employee?.startDate }}</span>
                             </p>
                         </div>
 
@@ -126,7 +126,8 @@
                             <h3 class="mb-1">{{employee?.employeeName}}</h3>
                             <p class="text-secondary mb-1">{{employee?.selectRole}}</p>
                             <p class="text-secondary mb-1">
-                                From {{ employee?.startDate }} - <span>{{ employee?.endDate}}</span>
+                                From {{ employee?.startDate }} <span *ngIf="employee?.endDate !== 'aN-aN-NaN'"> - {{
+                                    employee?.endDate }}</span>
                             </p>
                         </div>
 
